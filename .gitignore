@@ -1,0 +1,15 @@
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Optional: Uncomment if you want to use Bootstrap from CDN instead
+# vendor/bootstrap-5.3.8-dist/

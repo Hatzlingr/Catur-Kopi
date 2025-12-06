@@ -1,0 +1,340 @@
+<!-- ============================================ -->
+<!-- STRUKTUR HTML5 SEMANTIK & VALID -->
+<!-- Menggunakan elemen semantik: header, section, article, footer -->
+<!-- ============================================ -->
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tentang Kami - Catur Kopi</title>
+    <link
+      href="../vendor/bootstrap-5.3.8-dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+  <body>
+    <script>
+      if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-mode");
+      }
+    </script>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Catur Kopi</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="offcanvas-lg offcanvas-end"
+          tabindex="-1"
+          id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+              Catur Kopi
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav ms-auto align-items-center">
+              <li class="nav-item">
+                <a class="nav-link" href="../index.html">Beranda</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./about.html"
+                  >Tentang Kami</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./services.html">Layanan & Produk</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./contact.html">Kontak</a>
+              </li>
+              <li class="nav-item">
+                <button
+                  id="darkModeToggle"
+                  class="btn btn-sm"
+                  aria-label="Toggle dark mode"
+                >
+                  Dark Mode
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-hero d-flex align-items-center">
+      <div class="container text-center text-white">
+        <h1 class="display-4 fw-bold mb-3">Tentang Catur Kopi</h1>
+        <p class="lead">Aroma Nusantara, Dari Hati ke Cangkir</p>
+      </div>
+    </section>
+
+    <!-- About Info Section -->
+    <section class="about-info-section py-5 px-4">
+      <div class="container">
+        <div class="row justify-content-center align-items-center g-4">
+          <!-- Logo Image -->
+          <div class="col-12 col-md-5 col-lg-4 text-center fade-in">
+            <img
+              src="../assets/img/logo.png"
+              alt="Catur Kopi Logo"
+              class="img-fluid mb-3"
+              style="max-width: 300px"
+            />
+          </div>
+
+          <!-- Company Information -->
+          <div
+            class="col-12 col-md-7 col-lg-8 fade-in"
+            style="transition-delay: 0.2s"
+          >
+            <h2 class="mb-4">Sejarah Kami</h2>
+            <p class="lead">
+              Didirikan pada tahun 2015, Catur Kopi bermula dari sebuah kedai
+              kecil di dataran tinggi Jawa Barat. Kami menyadari bahwa Indonesia
+              adalah surga bagi 4 jenis kopi utama dunia.
+            </p>
+
+            <!-- Vision -->
+            <div class="mt-5">
+              <h3 class="h4 mb-3">Visi</h3>
+              <p>
+                Menjadi duta kopi Indonesia yang memperkenalkan kekayaan rasa
+                Arabica, Robusta, Liberica, dan Excelsa ke panggung dunia.
+              </p>
+            </div>
+
+            <!-- Mission -->
+            <div class="mt-4">
+              <h3 class="h4 mb-3">Misi</h3>
+              <ul class="list-unstyled">
+                <li class="mb-2">
+                  ✓ Memberdayakan petani lokal dengan perdagangan yang adil.
+                </li>
+                <li class="mb-2">
+                  ✓ Mengedukasi masyarakat tentang perbedaan karakteristik kopi.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section py-5 px-4 bg-light">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="text-center mb-5 fade-in">
+          <h2 class="display-5 mb-3">Tim Kami</h2>
+          <p class="lead text-muted">
+            Orang-orang di balik secangkir kopi terbaik Anda
+          </p>
+        </div>
+
+        <!-- Team Grid -->
+        <div class="row g-4 justify-content-center">
+          <!-- Team Member 1 -->
+          <div class="col-sm-6 col-lg-2 slide-up">
+            <article class="card text-center h-100 shadow-sm">
+              <img
+                src="https://randomuser.me/api/portraits/men/32.jpg"
+                class="card-img-top"
+                alt="Budi Santoso - Founder & Head Roaster"
+                loading="lazy"
+              />
+              <div class="card-body">
+                <h3 class="card-title h5">Helen Patricia</h3>
+                <p class="card-text text-muted">Founder & Head Roaster</p>
+              </div>
+            </article>
+          </div>
+
+          <!-- Team Member 2 -->
+          <div
+            class="col-sm-6 col-lg-2 slide-up"
+            style="transition-delay: 0.1s"
+          >
+            <article class="card text-center h-100 shadow-sm">
+              <img
+                src="../assets/img/profiles/Adha Saputra.jpeg"
+                class="card-img-top"
+                alt="Siti Aminah - Operational Manager"
+                loading="lazy"
+              />
+              <div class="card-body">
+                <h3 class="card-title h5">Muhammad Adha</h3>
+                <p class="card-text text-muted">Operational Manager</p>
+              </div>
+            </article>
+          </div>
+
+          <!-- Team Member 3 -->
+          <div
+            class="col-sm-6 col-lg-2 slide-up"
+            style="transition-delay: 0.2s"
+          >
+            <article class="card text-center h-100 shadow-sm">
+              <img
+                src="https://randomuser.me/api/portraits/men/85.jpg"
+                class="card-img-top"
+                alt="Andi Pratama - Head Barista"
+                loading="lazy"
+              />
+              <div class="card-body">
+                <h3 class="card-title h5">Amirul Nur Cahyo</h3>
+                <p class="card-text text-muted">Production Manager</p>
+              </div>
+            </article>
+          </div>
+
+          <div
+            class="col-sm-6 col-lg-2 slide-up"
+            style="transition-delay: 0.3s"
+          >
+            <article class="card text-center h-100 shadow-sm">
+              <img
+                src="../assets/img/profiles/Rahma Alfira.jpg"
+                class="card-img-top"
+                alt="Budi Santoso - Founder & Head Roaster"
+                loading="lazy"
+              />
+              <div class="card-body">
+                <h3 class="card-title h5">Rama Situmorang</h3>
+                <p class="card-text text-muted">Head of Marketing</p>
+              </div>
+            </article>
+          </div>
+
+          <!-- Team Member 2 -->
+          <div
+            class="col-sm-6 col-lg-2 slide-up"
+            style="transition-delay: 0.4s"
+          >
+            <article class="card text-center h-100 shadow-sm">
+              <img
+                src="https://randomuser.me/api/portraits/women/44.jpg"
+                class="card-img-top"
+                alt="Siti Aminah - Operational Manager"
+                loading="lazy"
+              />
+              <div class="card-body">
+                <h3 class="card-title h5">Malisyah Nadya</h3>
+                <p class="card-text text-muted">Quality Control</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modern Footer -->
+    <footer class="modern-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <h3>Catur Kopi</h3>
+            <p>4 Rasa, 1 Jiwa Nusantara</p>
+          </div>
+
+          <div class="footer-links">
+            <a href="../index.html">Beranda</a>
+            <a href="./about.html">Tentang</a>
+            <a href="./services.html">Produk</a>
+            <a href="./contact.html">Kontak</a>
+          </div>
+
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram" class="social-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path
+                  d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
+                ></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="#" aria-label="Facebook" class="social-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                ></path>
+              </svg>
+            </a>
+            <a href="#" aria-label="WhatsApp" class="social-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 Catur Kopi Indonesia. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <button id="scrollToTopBtn" title="Go to top">↑</button>
+
+    <script src="../vendor/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/script.js"></script>
+  </body>
+</html>
