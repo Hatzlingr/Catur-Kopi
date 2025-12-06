@@ -31,18 +31,15 @@ document.addEventListener("DOMContentLoaded", function () {
   // Mengubah style navbar saat scroll
   // ==========================================
   const navbar = document.querySelector('.navbar');
-  let lastScroll = 0;
 
   window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-    
+
     if (currentScroll > 50) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
     }
-    
-    lastScroll = currentScroll;
   });
 
   // ==========================================
@@ -54,9 +51,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Sinkronisasi tombol dengan status saat ini (karena body sudah di-set oleh inline script di HTML)
   if (toggleBtn) {
-    if (body.classList.contains("dark-mode")) {
-      toggleBtn.textContent = "☀️ Light Mode";
-    }
+    toggleBtn.textContent = body.classList.contains("dark-mode")
+      ? "☀️ Light Mode"
+      : "🌙 Dark Mode";
 
     toggleBtn.addEventListener("click", () => {
       body.classList.toggle("dark-mode");
@@ -146,41 +143,4 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ==========================================
-  // FITUR INTERAKTIF #4: Image Gallery Filter
-  // DOM Manipulation: Filter dan animasi produk
-  // ==========================================
-  const filterButtons = document.querySelectorAll(".filter-btn");
-  const productItems = document.querySelectorAll(".product-item");
-
-  if (filterButtons.length > 0 && productItems.length > 0) {
-    filterButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        // DOM Manipulation: Remove dan add class untuk active state
-        filterButtons.forEach((btn) => btn.classList.remove("active"));
-        button.classList.add("active");
-
-        const category = button.getAttribute("data-filter");
-
-        productItems.forEach((item) => {
-          const itemCategory = item.getAttribute("data-category");
-
-          if (category === "all" || category === itemCategory) {
-            // DOM Manipulation: Mengubah display style
-            item.style.display = "block";
-            // DOM Manipulation: Animate element dengan Web Animations API
-            item.animate(
-              [
-                { opacity: 0, transform: "scale(0.9)" },
-                { opacity: 1, transform: "scale(1)" },
-              ],
-              { duration: 300, fill: "forwards" }
-            );
-          } else {
-            item.style.display = "none";
-          }
-        });
-      });
-    });
-  }
 });

@@ -13,7 +13,7 @@
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display:wght@700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../assets/css/style.css" />
@@ -27,7 +27,9 @@
 
     <nav class="navbar navbar-expand-lg sticky-top">
       <div class="container">
-        <a class="navbar-brand" href="../index.html">Catur Kopi</a>
+        <a class="navbar-brand" href="../index.html">
+          <img src="../assets/img/logo.png" alt="Catur Kopi Logo" height="54" />
+        </a>
         <button
           class="navbar-toggler"
           type="button"
@@ -71,9 +73,9 @@
 
     <!-- Hero Section -->
     <section class="about-hero d-flex align-items-center">
-      <div class="container text-center text-white">
-        <h1 class="display-4 fw-bold mb-3">Tentang Catur Kopi</h1>
-        <p class="lead">Aroma Nusantara, Dari Hati ke Cangkir</p>
+      <div class="container text-center">
+        <h1 class="text-hero mb-3">Tentang Catur Kopi</h1>
+        <p class="text-lead">Aroma Nusantara, Dari Hati ke Cangkir</p>
       </div>
     </section>
 
@@ -86,27 +88,25 @@
             <img
               src="../assets/img/logo.png"
               alt="Catur Kopi Logo"
-              class="img-fluid mb-3"
-              style="max-width: 300px"
+              class="img-fluid mb-3 about-logo"
             />
           </div>
 
           <!-- Company Information -->
-          <div
-            class="col-12 col-md-7 col-lg-8 fade-in"
-            style="transition-delay: 0.2s"
-          >
-            <h2 class="mb-4">Sejarah Kami</h2>
-            <p class="lead">
-              Didirikan pada tahun 2015, Catur Kopi bermula dari sebuah kedai
-              kecil di dataran tinggi Jawa Barat. Kami menyadari bahwa Indonesia
-              adalah surga bagi 4 jenis kopi utama dunia.
-            </p>
+          <div class="col-12 col-md-7 col-lg-8 fade-in">
+            <div>
+              <h2 class="text-subheading mb-3">Sejarah Kami</h2>
+              <p class="text-body">
+                Didirikan pada tahun 2015, Catur Kopi bermula dari sebuah kedai
+                kecil di dataran tinggi Jawa Barat. Kami menyadari bahwa
+                Indonesia adalah surga bagi 4 jenis kopi utama dunia.
+              </p>
+            </div>
 
             <!-- Vision -->
-            <div class="mt-5">
-              <h3 class="h4 mb-3">Visi</h3>
-              <p>
+            <div class="mt-4">
+              <h2 class="text-subheading mb-3">Visi</h2>
+              <p class="text-body">
                 Menjadi duta kopi Indonesia yang memperkenalkan kekayaan rasa
                 Arabica, Robusta, Liberica, dan Excelsa ke panggung dunia.
               </p>
@@ -114,13 +114,13 @@
 
             <!-- Mission -->
             <div class="mt-4">
-              <h3 class="h4 mb-3">Misi</h3>
+              <h2 class="text-subheading mb-3">Misi</h2>
               <ul class="list-unstyled">
-                <li class="mb-2">
-                  ✓ Memberdayakan petani lokal dengan perdagangan yang adil.
+                <li class="text-body">
+                  Memberdayakan petani lokal dengan perdagangan yang adil.
                 </li>
-                <li class="mb-2">
-                  ✓ Mengedukasi masyarakat tentang perbedaan karakteristik kopi.
+                <li class="text-body mb-2">
+                  Mengedukasi masyarakat tentang perbedaan karakteristik kopi.
                 </li>
               </ul>
             </div>
@@ -134,8 +134,8 @@
       <div class="container">
         <!-- Section Header -->
         <div class="text-center mb-5 fade-in">
-          <h2 class="display-5 mb-3">Tim Kami</h2>
-          <p class="lead">
+          <h2 class="text-section mb-3">Tim Kami</h2>
+          <p class="text-lead">
             Orang-orang di balik secangkir kopi terbaik Anda
           </p>
         </div>
@@ -146,89 +146,77 @@
           <div class="col-sm-6 col-lg-2 slide-up">
             <article class="card text-center h-100 shadow-sm">
               <img
-                src="https://randomuser.me/api/portraits/men/32.jpg"
+                src="../assets/img/profiles/Helen Patricia.jpeg"
                 class="card-img-top"
-                alt="Budi Santoso - Founder & Head Roaster"
+                alt="Helen Patricia - Founder & Head Roaster"
                 loading="lazy"
               />
               <div class="card-body">
-                <h3 class="card-title h5">Helen Patricia</h3>
-                <p class="card-text">Founder & Head Roaster</p>
+                <h3 class="card-title text-subheading">Helen Patricia</h3>
+                <p class="card-text text-body">Founder & Head Roaster</p>
               </div>
             </article>
           </div>
 
           <!-- Team Member 2 -->
-          <div
-            class="col-sm-6 col-lg-2 slide-up"
-            style="transition-delay: 0.1s"
-          >
+          <div class="col-sm-6 col-lg-2 slide-up">
             <article class="card text-center h-100 shadow-sm">
               <img
                 src="../assets/img/profiles/Adha Saputra.jpeg"
                 class="card-img-top"
-                alt="Siti Aminah - Operational Manager"
+                alt="Muhammad Adha - Operational Manager"
                 loading="lazy"
               />
               <div class="card-body">
-                <h3 class="card-title h5">Muhammad Adha</h3>
-                <p class="card-text">Operational Manager</p>
+                <h3 class="card-title text-subheading">Muhammad Adha</h3>
+                <p class="card-text text-body">Operational Manager</p>
               </div>
             </article>
           </div>
 
           <!-- Team Member 3 -->
-          <div
-            class="col-sm-6 col-lg-2 slide-up"
-            style="transition-delay: 0.2s"
-          >
+          <div class="col-sm-6 col-lg-2 slide-up">
             <article class="card text-center h-100 shadow-sm">
               <img
-                src="https://randomuser.me/api/portraits/men/85.jpg"
+                src="../assets/img/profiles/Amirul Nur Cahyo.jpeg"
                 class="card-img-top"
-                alt="Andi Pratama - Head Barista"
+                alt="Amirul Nur Cahyo - Production Manager"
                 loading="lazy"
               />
               <div class="card-body">
-                <h3 class="card-title h5">Amirul Nur Cahyo</h3>
-                <p class="card-text">Production Manager</p>
+                <h3 class="card-title text-subheading">Amirul Nur Cahyo</h3>
+                <p class="card-text text-body">Production Manager</p>
               </div>
             </article>
           </div>
 
-          <div
-            class="col-sm-6 col-lg-2 slide-up"
-            style="transition-delay: 0.3s"
-          >
+          <div class="col-sm-6 col-lg-2 slide-up">
             <article class="card text-center h-100 shadow-sm">
               <img
                 src="../assets/img/profiles/Rahma Alfira.jpg"
                 class="card-img-top"
-                alt="Budi Santoso - Founder & Head Roaster"
+                alt="Rama Situmorang - Head of Marketing"
                 loading="lazy"
               />
               <div class="card-body">
-                <h3 class="card-title h5">Rama Situmorang</h3>
-                <p class="card-text">Head of Marketing</p>
+                <h3 class="card-title text-subheading">Rama Situmorang</h3>
+                <p class="card-text text-body">Head of Marketing</p>
               </div>
             </article>
           </div>
 
           <!-- Team Member 2 -->
-          <div
-            class="col-sm-6 col-lg-2 slide-up"
-            style="transition-delay: 0.4s"
-          >
+          <div class="col-sm-6 col-lg-2 slide-up">
             <article class="card text-center h-100 shadow-sm">
               <img
-                src="https://randomuser.me/api/portraits/women/44.jpg"
+                src="../assets/img/profiles/Malisyah Nadya Marvini.jpeg"
                 class="card-img-top"
-                alt="Siti Aminah - Operational Manager"
+                alt="Malisyah Nadya - Quality Control"
                 loading="lazy"
               />
               <div class="card-body">
-                <h3 class="card-title h5">Malisyah Nadya</h3>
-                <p class="card-text">Quality Control</p>
+                <h3 class="card-title text-subheading">Malisyah Nadya</h3>
+                <p class="card-text text-body">Quality Control</p>
               </div>
             </article>
           </div>
