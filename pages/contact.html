@@ -31,60 +31,43 @@
         <button
           class="navbar-toggler"
           type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasNavbar"
-          aria-controls="offcanvasNavbar"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
           aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div
-          class="offcanvas-lg offcanvas-end"
-          tabindex="-1"
-          id="offcanvasNavbar"
-          aria-labelledby="offcanvasNavbarLabel"
-        >
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-              Catur Kopi
-            </h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="offcanvas-body">
-            <ul class="navbar-nav ms-auto align-items-center">
-              <li class="nav-item">
-                <a class="nav-link" href="../index.html">Beranda</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./about.html">Tentang Kami</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./services.html">Layanan & Produk</a>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="./contact.html"
-                  >Kontak</a
-                >
-              </li>
-              <li class="nav-item">
-                <button
-                  id="darkModeToggle"
-                  class="btn btn-sm"
-                  aria-label="Toggle dark mode"
-                >
-                  Dark Mode
-                </button>
-              </li>
-            </ul>
-          </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./about.html">Tentang Kami</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./services.html">Layanan & Produk</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="./contact.html"
+                >Kontak</a
+              >
+            </li>
+            <li class="nav-item">
+              <button
+                id="darkModeToggle"
+                class="btn btn-sm"
+                aria-label="Toggle dark mode"
+              >
+                Dark Mode
+              </button>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>

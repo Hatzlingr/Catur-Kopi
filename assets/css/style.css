@@ -137,7 +137,7 @@ p {
     box-shadow: var(--shadow-md);
 }
 
-.navbar-brand, .offcanvas-title {
+.navbar-brand {
     color: var(--primary-color) !important;
     font-weight: 700;
     font-size: 1.5rem;
@@ -656,25 +656,6 @@ footer {
     color: var(--bg-color);
     /* PROPERTI CSS KUSTOM #5: TRANSFORM */
     transform: scale(1.05);
-}
-
-/* --- 6. OFFCANVAS CUSTOMIZATION --- */
-/* Agar offcanvas tidak full width di mobile */
-@media (max-width: 991.98px) {
-    .offcanvas-end {
-        width: 75% !important;
-        max-width: 300px;
-    }
-}
-
-/* Offcanvas dark mode support */
-body.dark-mode .offcanvas {
-  background-color: var(--navbar-bg);
-  color: var(--text-color);
-}
-
-body.dark-mode .btn-close {
-  filter: invert(1);
 }
 
 /* Dark Mode for Cards */
