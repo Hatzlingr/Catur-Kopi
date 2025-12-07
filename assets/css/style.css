@@ -41,11 +41,11 @@ body.dark-mode {
     --primary-color: #c4a67a;
     --secondary-color: #9d8365;
     --accent-color: #d4b896;
-    --bg-color: #0f0f0f;
-    --text-color: #e8e8e8;
-    --text-muted: #eadfdf;
-    --card-bg: #1a1a1a;
-    --navbar-bg: rgba(26, 26, 26, 0.95);
+  --bg-color: #0f0f0f;
+  --text-color: #f4f4f4;
+  --text-muted: #cfcfcf;
+  --card-bg: #161616;
+  --navbar-bg: rgba(24, 24, 24, 0.95);
     --overlay-dark: rgba(0, 0, 0, 0.7);
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
     --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
@@ -94,33 +94,32 @@ p {
 
 /* Typography Scale - Ladang Lima inspired */
 .text-hero {
-  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  font-size: clamp(2.1rem, 3.5vw, 3rem);
   line-height: 1.15;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.02em;
 }
 
 .text-section {
-  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
   line-height: 1.2;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.015em;
 }
 
 .text-subheading {
-  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  font-size: clamp(1.15rem, 1.9vw, 1.3rem);
   line-height: 1.35;
   font-weight: 600;
 }
 
 .text-lead {
-  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
   line-height: 1.7;
   font-weight: 400;
-  
 }
 
-.text-body {
+.ck-text-body {
   font-size: 1rem;
   line-height: 1.75;
   font-weight: 400;
@@ -134,7 +133,7 @@ p {
   color: var(--text-color);
 }
 
-.text-body-sm {
+.ck-text-body-sm {
   font-size: 0.95rem;
   line-height: 1.6;
   font-weight: 400;
