@@ -11,6 +11,7 @@
     --accent-color: #c89f6f;        /* Golden Sand */
     --bg-color: #fafaf8;            /* Cream White */
     --text-color: #2d2d2d;          /* Charcoal */
+    --text-hero: #ebdfd8;
     --text-muted: #6b6b6b;          /* Gray */
     --card-bg: #ffffff;
     --navbar-bg: rgba(255, 255, 255, 0.95);
@@ -43,6 +44,7 @@ body.dark-mode {
     --accent-color: #d4b896;
   --bg-color: #0f0f0f;
   --text-color: #f4f4f4;
+  --text-hero: #fafafa;
   --text-muted: #cfcfcf;
   --card-bg: #161616;
   --navbar-bg: rgba(24, 24, 24, 0.95);
@@ -86,18 +88,13 @@ p {
   line-height: 1.75;
 }
 
-.lead {
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
-}
-
 /* Typography Scale - Ladang Lima inspired */
 .text-hero {
   font-size: clamp(2.1rem, 3.5vw, 3rem);
   line-height: 1.15;
   font-weight: 600;
   letter-spacing: -0.02em;
+  color: var(--text-hero);
 }
 
 .text-section {
@@ -115,10 +112,11 @@ p {
   color: var(--primary-color);
 }
 
-.text-lead {
+.ck-text-lead {
   font-size: clamp(1rem, 1.3vw, 1.15rem);
   line-height: 1.7;
   font-weight: 400;
+  color: var(--text-muted);
 }
 
 .ck-text-body {
@@ -247,7 +245,6 @@ p {
     background-position: center;
     background-attachment: fixed;
     min-height: 100vh;
-    color: white;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -274,7 +271,6 @@ p {
 }
 
 .hero-section p {
-  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 2rem;
   animation: fadeInUp 1s ease-out 0.2s backwards;
 }
