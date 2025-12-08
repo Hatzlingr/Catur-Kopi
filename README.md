@@ -10,9 +10,8 @@
 
 ## 🌐 Live Demo
 
-**[Kunjungi Website →](https://USERNAME.github.io/catur-kopi/)**
+**[Kunjungi Website →](https://Hatzlingr.github.io/Catur-Kopi/)**
 
-> ⚠️ Ganti `USERNAME` dengan username GitHub Anda
 
 ## 📋 Tentang Project
 
@@ -68,7 +67,7 @@ catur_kopi/
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/USERNAME/catur-kopi.git
+git clone https://github.com/Hatzlingr/Catur-Kopi.git
 cd catur-kopi
 ```
 
