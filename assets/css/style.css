@@ -16,7 +16,6 @@
     --text-muted: #6b6b6b;          /* Gray */
     --card-bg: #ffffff;
     --navbar-bg: rgba(255, 255, 255, 0.95);
-    --overlay-dark: rgba(0, 0, 0, 0.5);
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
     --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
     --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
@@ -46,25 +45,122 @@
 
 /* --- 2. DARK MODE OVERRIDES --- */
 body.dark-mode {
-    --primary-color: #c4a67a;
-    --secondary-color: #9d8365;
-    --accent-color: #d4b896;
-    --intro-bg: linear-gradient(135deg, rgba(212, 184, 150, 0.18) 0%, rgba(196, 166, 122, 0.16) 100%);
+  /* CSS Variables */
+  --primary-color: #c4a67a;
+  --secondary-color: #9d8365;
+  --accent-color: #d4b896;
+  --intro-bg: linear-gradient(135deg, rgba(212, 184, 150, 0.18) 0%, rgba(196, 166, 122, 0.16) 100%);
   --bg-color: #0f0f0f;
   --text-color: #f4f4f4;
   --text-hero: #fafafa;
   --text-muted: #cfcfcf;
   --card-bg: #161616;
   --navbar-bg: rgba(24, 24, 24, 0.95);
-    --overlay-dark: rgba(0, 0, 0, 0.7);
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
-    
-    /* Dark mode surface & border */
-    --surface-muted: rgba(200, 159, 111, 0.06);
-    --surface-strong: rgba(200, 159, 111, 0.14);
-    --border-subtle: rgba(255, 255, 255, 0.08);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+  
+  /* Dark mode surface & border */
+  --surface-muted: rgba(200, 159, 111, 0.06);
+  --surface-strong: rgba(200, 159, 111, 0.14);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  
+  /* Dark mode specific tokens */
+  --border-light: rgba(255, 255, 255, 0.1);
+  --border-lighter: rgba(255, 255, 255, 0.2);
+  --bg-input: rgba(255, 255, 255, 0.05);
+  --bg-input-focus: rgba(255, 255, 255, 0.08);
+  --placeholder-color: rgba(255, 255, 255, 0.4);
+  --shadow-focus: 0 0 0 0.25rem rgba(200, 159, 111, 0.25);
+  --badge-bg: rgba(200, 159, 111, 0.2);
+  --overlay-gradient-dark: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5));
+
+  /* Navbar Toggler */
+  .navbar-toggler {
+    border-color: rgba(219, 21, 21, 0.3);
+    filter: invert(1);
+  }
+
+  /* Cards */
+  .card {
+    border-color: var(--border-subtle);
+  }
+
+  /* Accordion */
+  .accordion-item {
+    background-color: var(--card-bg);
+    border-color: var(--border-light);
+  }
+
+  .accordion-button {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+  }
+
+  .accordion-button:not(.collapsed) {
+    background-color: var(--surface-muted);
+    color: var(--accent-color);
+  }
+
+  .accordion-button:focus {
+    border-color: var(--border-lighter);
+    box-shadow: var(--shadow-focus);
+  }
+
+  .accordion-body {
+    background-color: var(--card-bg);
+    color: var(--text-muted);
+  }
+
+  /* Forms */
+  .form-control,
+  .form-select {
+    background-color: var(--bg-input);
+    border-color: var(--border-light);
+    color: var(--text-color);
+  }
+
+  .form-control:focus,
+  .form-select:focus {
+    background-color: var(--bg-input-focus);
+    border-color: var(--accent-color);
+    color: var(--text-color);
+    box-shadow: var(--shadow-focus);
+  }
+
+  .form-control::placeholder {
+    color: var(--placeholder-color);
+  }
+
+  .form-label {
+    color: var(--text-color);
+  }
+
+  /* Badges */
+  .badge {
+    background-color: var(--badge-bg);
+    color: var(--accent-color);
+  }
+
+  /* Product Features */
+  .product-features {
+    background: var(--surface-muted);
+    border-left-color: var(--accent-color);
+  }
+
+  .feature-item strong {
+    color: var(--accent-color);
+  }
+
+  /* Carousel */
+  .carousel-caption {
+    background: var(--overlay-gradient-dark);
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    filter: brightness(1.2);
+  }
 }
 
 /* --- 3. BASE STYLES --- */
@@ -201,13 +297,11 @@ p {
     background-color: var(--navbar-bg) !important;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    
     /* PROPERTI CSS KUSTOM #3: BOX-SHADOW */
     box-shadow: var(--shadow-sm);
-    
     /* PROPERTI CSS KUSTOM #2: TRANSITION */
     transition: all var(--transition-base);
-    padding: 1rem 0;
+    padding: var(--spacing-sm) 0;
 }
 
 .navbar.scrolled {
@@ -219,8 +313,8 @@ p {
     color: var(--text-color) !important;
     font-weight: 500;
     position: relative;
-    padding: 0.5rem 1rem !important;
-    
+    justify-content: center;
+    padding: var(--spacing-sm) var(--spacing-sm) !important;
     /* PROPERTI CSS KUSTOM #2: TRANSITION */
     transition: color var(--transition-base);
 }
@@ -249,16 +343,10 @@ p {
 /* Navbar Toggler - Dark Mode Support */
 .navbar-toggler {
     border-color: var(--border-subtle);
-    transition: border-color var(--transition-base);
+    transition: border-color var(--transition-base), filter var(--transition-base);
 }
 
-body.dark-mode .navbar-toggler {
-    border-color: rgba(255, 255, 255, 0.3);
-}
 
-body.dark-mode .navbar-toggler-icon {
-    filter: invert(1);
-}
 
 /* Hero Section - Modern & Parallax */
 .hero-section {
@@ -489,19 +577,6 @@ body.dark-mode .navbar-toggler-icon {
   border: 1px solid var(--border-subtle);
 }
 
-@media (max-width: 991px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-    padding: 2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .about-grid {
-    padding: 1.5rem;
-  }
-}
-
 .about-hero::before {
   content: "";
   position: absolute;
@@ -592,16 +667,6 @@ body.dark-mode .navbar-toggler-icon {
   background-color: var(--accent-color);
 }
 
-@media (max-width: 768px) {
-  .product-carousel .carousel-item img {
-    height: 300px;
-  }
-  
-  .product-carousel .carousel-caption {
-    padding: 1.5rem 1rem;
-  }
-}
-
 .product-content {
   padding: 0 1rem;
 }
@@ -633,16 +698,7 @@ body.dark-mode .navbar-toggler-icon {
   color: var(--text-muted);
 }
 
-/* Responsive Product Showcase */
-@media (max-width: 991px) {
-  .product-showcase .flex-lg-row-reverse {
-    flex-direction: column !important;
-  }
-  
-  .product-content {
-    padding: 2rem 0 0 0;
-  }
-}
+
 
 /* Modern Cards */
 .card {
@@ -726,112 +782,45 @@ body.dark-mode .navbar-toggler-icon {
 
 /* Dark Mode Toggle - Sleek Design */
 #darkModeToggle {
-    background: transparent;
-    border: 2px solid var(--text-color);
-    color: var(--text-color);
-    padding: 8px 20px;
-    border-radius: 30px;
-    margin-left: 10px;
-    cursor: pointer;
-    font-weight: 600;
-    
-    /* PROPERTI CSS KUSTOM #2: TRANSITION */
-    transition: all var(--transition-base);
+  background: transparent;
+  border: 2px solid var(--text-color);
+  color: var(--text-color);
+  padding: 8px 16px;
+  border-radius: 30px;
+  margin-left: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* PROPERTI CSS KUSTOM #2: TRANSITION */
+  transition: all var(--transition-base);
+}
+
+#darkModeToggle i {
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
 }
 
 #darkModeToggle:hover {
-    background-color: var(--text-color);
-    color: var(--bg-color);
-    /* PROPERTI CSS KUSTOM #5: TRANSFORM */
-    transform: scale(1.05);
+  background-color: var(--text-color);
+  color: var(--bg-color);
+  /* PROPERTI CSS KUSTOM #5: TRANSFORM */
+  transform: scale(1.05);
 }
 
-/* Dark Mode for Cards - border handled by --border-subtle token */
-body.dark-mode .card {
-  border-color: var(--border-subtle);
+#darkModeToggle:hover i {
+  transform: rotate(15deg) scale(1.1);
 }
 
-/* Dark Mode for Accordion */
-body.dark-mode .accordion-item {
-  background-color: var(--card-bg);
-  border-color: rgba(255, 255, 255, 0.1);
-}
 
-body.dark-mode .accordion-button {
-  background-color: var(--card-bg);
-  color: var(--text-color);
-}
-
-body.dark-mode .accordion-button:not(.collapsed) {
-  background-color: rgba(200, 159, 111, 0.1);
-  color: var(--accent-color);
-}
-
-body.dark-mode .accordion-button:focus {
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 0 0.25rem rgba(200, 159, 111, 0.25);
-}
-
-body.dark-mode .accordion-body {
-  background-color: var(--card-bg);
-  color: var(--text-muted);
-}
-
-/* Dark Mode for Forms */
-body.dark-mode .form-control,
-body.dark-mode .form-select {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.1);
-  color: var(--text-color);
-}
-
-body.dark-mode .form-control:focus,
-body.dark-mode .form-select:focus {
-  background-color: rgba(255, 255, 255, 0.08);
-  border-color: var(--accent-color);
-  color: var(--text-color);
-  box-shadow: 0 0 0 0.25rem rgba(200, 159, 111, 0.25);
-}
-
-body.dark-mode .form-control::placeholder {
-  color: rgba(255, 255, 255, 0.4);
-}
-
-body.dark-mode .form-label {
-  color: var(--text-color);
-}
-
-/* Dark Mode for Badges */
-body.dark-mode .badge {
-  background-color: rgba(200, 159, 111, 0.2) !important;
-  color: var(--accent-color) !important;
-}
-
-/* Dark Mode for Product Features */
-body.dark-mode .product-features {
-  background: rgba(200, 159, 111, 0.05);
-  border-left-color: var(--accent-color);
-}
-
-body.dark-mode .feature-item strong {
-  color: var(--accent-color);
-}
-
-/* Dark Mode for Carousel in Gallery */
-body.dark-mode .carousel-caption {
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5));
-}
-
-body.dark-mode .carousel-control-prev-icon,
-body.dark-mode .carousel-control-next-icon {
-  filter: brightness(1.2);
-}/* --- 7. FOOTER & SECTIONS --- */
+/* --- 7. FOOTER & SECTIONS --- */
 
 /* Modern Footer - Simpel & Bersih */
 .modern-footer {
     background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
     padding: var(--spacing-md) 0 var(--spacing-md);
-    margin-top: var(--spacing-xl);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -890,24 +879,50 @@ body.dark-mode .carousel-control-next-icon {
     transition: all 0.3s ease;
 }
 
+.social-icon i {
+    font-size: 1.25rem;
+    transition: transform 0.3s ease;
+}
+
 .social-icon:hover {
     background: var(--accent-color);
     color: white;
     transform: translateY(-3px);
 }
 
-.footer-bottom {
+.social-icon:hover i {
+    transform: scale(1.15);
+}
+
+/* .footer-bottom {
     text-align: center;
     padding-top: var(--spacing-md);
-}
+} */
 
 .footer-bottom p {
     color: rgba(255, 255, 255, 0.5);
     margin: 0;
 }
 
+/* Section Spacing */
+.intro-section,
+.gallery-section,
+.products-section,
+.about-info-section,
+.team-section,
+.contact-section {
+    padding: var(--spacing-xl) 1.5rem;
+}
+
 /* Responsive Footer */
 @media (max-width: 768px) {
+  .product-carousel .carousel-item img {
+    height: 300px;
+  }
+  
+  .product-carousel .carousel-caption {
+    padding: 1.5rem 1rem;
+  }
     .footer-content {
         flex-direction: column;
         text-align: center;
@@ -924,24 +939,23 @@ body.dark-mode .carousel-control-next-icon {
     }
 }
 
-/* Section Spacing */
-section {
-    padding: var(--spacing-lg) 0;
-}
-
-.intro-section,
-.gallery-section,
-.products-section,
-.about-info-section,
-.team-section,
-.contact-section {
-    padding: var(--spacing-xl) 0;
-}
-
 /* Responsive Design - Consolidated Media Queries */
 @media (max-width: 991px) {
     .hero-section,
     .about-hero {
       background-attachment: scroll;
     }
+
+  /* Responsive Product Showcase */
+    .product-showcase .flex-lg-row-reverse {
+      flex-direction: column !important;
+    }
+  
+    .product-content {
+      padding: 2rem 0 0 0;
+    }
+
+      .about-grid {
+    grid-template-columns: 1fr;
+  }
 }

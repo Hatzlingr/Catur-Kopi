@@ -49,25 +49,25 @@ document.addEventListener("DOMContentLoaded", function () {
   const toggleBtn = document.getElementById("darkModeToggle");
   const body = document.body;
 
-  // Sinkronisasi tombol dengan status saat ini (karena body sudah di-set oleh inline script di HTML)
   if (toggleBtn) {
-    toggleBtn.textContent = body.classList.contains("dark-mode")
-      ? "☀️ Light Mode"
-      : "🌙 Dark Mode";
+    const icon = toggleBtn.querySelector('i');
+    
+    // Fungsi untuk update icon berdasarkan mode saat ini
+    const updateIcon = () => {
+      const isDark = body.classList.contains("dark-mode");
+      if (icon) {
+        icon.className = isDark ? "bi bi-sun-fill" : "bi bi-moon-stars-fill";
+      }
+      return isDark;
+    };
+
+    // Sinkronisasi icon dengan status awal
+    updateIcon();
 
     toggleBtn.addEventListener("click", () => {
       body.classList.toggle("dark-mode");
-
-      // Animasi transisi background manual saat klik tombol agar halus
-      body.style.transition = "background-color 0.3s ease, color 0.3s ease";
-
-      if (body.classList.contains("dark-mode")) {
-        toggleBtn.textContent = "☀️ Light Mode";
-        localStorage.setItem("theme", "dark");
-      } else {
-        toggleBtn.textContent = "🌙 Dark Mode";
-        localStorage.setItem("theme", "light");
-      }
+      const isDark = updateIcon();
+      localStorage.setItem("theme", isDark ? "dark" : "light");
     });
   }
 
@@ -105,36 +105,23 @@ document.addEventListener("DOMContentLoaded", function () {
     contactForm.addEventListener("submit", (event) => {
       event.preventDefault();
 
-      // DOM Manipulation: Mengakses elemen input
-      const nameInput = document.getElementById("name");
-      const emailInput = document.getElementById("email");
-      const messageInput = document.getElementById("message");
-      let isValid = true;
+      const inputs = [
+        { element: document.getElementById("name"), validator: (val) => val.trim() },
+        { element: document.getElementById("email"), validator: (val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val) },
+        { element: document.getElementById("message"), validator: (val) => val.trim() }
+      ];
 
-      // Remove previous validation states
-      // DOM Manipulation: Menghapus class dari multiple elements
-      [nameInput, emailInput, messageInput].forEach((input) => {
-        if (input) input.classList.remove("is-invalid");
+      // Reset validation states
+      inputs.forEach(({ element }) => element?.classList.remove("is-invalid"));
+
+      // Validate all inputs
+      const isValid = inputs.every(({ element, validator }) => {
+        if (!element || !validator(element.value)) {
+          element?.classList.add("is-invalid");
+          return false;
+        }
+        return true;
       });
-
-      // Validate name
-      if (!nameInput.value.trim()) {
-        nameInput.classList.add("is-invalid");
-        isValid = false;
-      }
-
-      // Validate email
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailInput.value.trim() || !emailPattern.test(emailInput.value)) {
-        emailInput.classList.add("is-invalid");
-        isValid = false;
-      }
-
-      // Validate message
-      if (messageInput && !messageInput.value.trim()) {
-        messageInput.classList.add("is-invalid");
-        isValid = false;
-      }
 
       if (isValid) {
         alert("Terima kasih! Pesan Anda telah kami terima.");
