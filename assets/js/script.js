@@ -27,34 +27,58 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // ==========================================
-  // NAVBAR SCROLL EFFECT
-  // Mengubah style navbar saat scroll
+  // CACHE DOM ELEMENTS FOR PERFORMANCE
   // ==========================================
-  const navbar = document.querySelector('.navbar');
+  const DOM = {
+    navbar: document.querySelector('.navbar'),
+    body: document.body,
+    darkModeToggle: document.getElementById("darkModeToggle"),
+    scrollTopBtn: document.getElementById("scrollToTopBtn"),
+    contactForm: document.getElementById("contactForm")
+  };
 
-  window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
+  // ==========================================
+  // OPTIMIZED SCROLL HANDLER (Throttled)
+  // Combines navbar scroll effect and scroll-to-top button
+  // ==========================================
+  let scrollTimeout;
+  
+  const handleScroll = () => {
+    if (scrollTimeout) return;
+    
+    scrollTimeout = setTimeout(() => {
+      const currentScroll = window.pageYOffset;
+      
+      // Navbar scroll effect
+      if (DOM.navbar) {
+        if (currentScroll > 50) {
+          DOM.navbar.classList.add('scrolled');
+        } else {
+          DOM.navbar.classList.remove('scrolled');
+        }
+      }
+      
+      // Scroll-to-top button visibility
+      if (DOM.scrollTopBtn) {
+        DOM.scrollTopBtn.style.display = currentScroll > 100 ? "block" : "none";
+      }
+      
+      scrollTimeout = null;
+    }, 100); // Throttle to every 100ms
+  };
 
-    if (currentScroll > 50) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  });
+  window.addEventListener('scroll', handleScroll, { passive: true });
 
   // ==========================================
   // FITUR INTERAKTIF #1: Dark / Light Mode Toggle
   // Memanfaatkan DOM untuk toggle class dan localStorage
   // ==========================================
-  const toggleBtn = document.getElementById("darkModeToggle");
-  const body = document.body;
-
-  if (toggleBtn) {
-    const icon = toggleBtn.querySelector('i');
+  if (DOM.darkModeToggle) {
+    const icon = DOM.darkModeToggle.querySelector('i');
     
     // Fungsi untuk update icon berdasarkan mode saat ini
     const updateIcon = () => {
-      const isDark = body.classList.contains("dark-mode");
+      const isDark = DOM.body.classList.contains("dark-mode");
       if (icon) {
         icon.className = isDark ? "bi bi-sun-fill" : "bi bi-moon-stars-fill";
       }
@@ -64,8 +88,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Sinkronisasi icon dengan status awal
     updateIcon();
 
-    toggleBtn.addEventListener("click", () => {
-      body.classList.toggle("dark-mode");
+    DOM.darkModeToggle.addEventListener("click", () => {
+      DOM.body.classList.toggle("dark-mode");
       const isDark = updateIcon();
       localStorage.setItem("theme", isDark ? "dark" : "light");
     });
@@ -73,21 +97,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ==========================================
   // FITUR INTERAKTIF #2: Scroll-to-Top Button
-  // DOM Manipulation: Show/hide button based on scroll position
+  // DOM Manipulation: Smooth scroll to top
   // ==========================================
-  const scrollTopBtn = document.getElementById("scrollToTopBtn");
-
-  if (scrollTopBtn) {
-    const toggleScrollButton = () => {
-      // DOM Manipulation: Mengakses scrollTop property
-      const scrolled = document.documentElement.scrollTop || document.body.scrollTop;
-      // DOM Manipulation: Mengubah style display
-      scrollTopBtn.style.display = scrolled > 100 ? "block" : "none";
-    };
-
-    window.addEventListener("scroll", toggleScrollButton);
-
-    scrollTopBtn.addEventListener("click", () => {
+  if (DOM.scrollTopBtn) {
+    DOM.scrollTopBtn.addEventListener("click", () => {
       window.scrollTo({
         top: 0,
         behavior: "smooth",
@@ -99,33 +112,31 @@ document.addEventListener("DOMContentLoaded", function () {
   // FITUR INTERAKTIF #3: Form Validation
   // DOM Manipulation: Form validation dengan classList
   // ==========================================
-  const contactForm = document.getElementById("contactForm");
+  if (DOM.contactForm) {
+    const validators = {
+      name: val => val.trim().length > 0,
+      email: val => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val),
+      message: val => val.trim().length > 0
+    };
 
-  if (contactForm) {
-    contactForm.addEventListener("submit", (event) => {
+    DOM.contactForm.addEventListener("submit", (event) => {
       event.preventDefault();
-
-      const inputs = [
-        { element: document.getElementById("name"), validator: (val) => val.trim() },
-        { element: document.getElementById("email"), validator: (val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val) },
-        { element: document.getElementById("message"), validator: (val) => val.trim() }
-      ];
-
-      // Reset validation states
-      inputs.forEach(({ element }) => element?.classList.remove("is-invalid"));
+      let isValid = true;
 
       // Validate all inputs
-      const isValid = inputs.every(({ element, validator }) => {
-        if (!element || !validator(element.value)) {
-          element?.classList.add("is-invalid");
-          return false;
-        }
-        return true;
+      Object.entries(validators).forEach(([id, validator]) => {
+        const element = document.getElementById(id);
+        if (!element) return;
+        
+        const valid = validator(element.value);
+        element.classList.toggle("is-invalid", !valid);
+        
+        if (!valid) isValid = false;
       });
 
       if (isValid) {
         alert("Terima kasih! Pesan Anda telah kami terima.");
-        contactForm.reset();
+        DOM.contactForm.reset();
       }
     });
   }
