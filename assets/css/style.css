@@ -599,14 +599,14 @@ p {
 
 
 /* Services Section - Premium Style */
-.services-section {
-  background: linear-gradient(180deg, var(--bg-color) 0%, var(--surface-muted) 100%);
-  padding: 0 1.5rem var(--spacing-xl);
+.services-section, .team-section {
+  background: var(--intro-bg);
+  padding: var(--spacing-lg) 1.5rem;
 }
 
 /* Product Showcase - Ladang Lima Style */
 .product-showcase {
-  padding: var(--spacing-lg) 0;
+  padding: var(--spacing-md) 0;
   border-bottom: 1px solid var(--border-subtle);
 }
 
@@ -922,7 +922,6 @@ p {
 .gallery-section,
 .products-section,
 .about-info-section,
-.team-section,
 .contact-section {
     padding: var(--spacing-lg) 1.5rem;
 }
