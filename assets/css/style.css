@@ -966,12 +966,13 @@ p {
     .footer-content {
         flex-direction: column;
         text-align: center;
-        gap: 1.5rem;
+        gap: 0.5rem;
+        padding-bottom: var(--spacing-sm)
     }
     
     .footer-links {
         justify-content: center;
-        gap: 1.5rem;
+        gap: var(--spacing-sm);
     }
 
     .footer-links a {
@@ -980,6 +981,10 @@ p {
     
     .footer-social {
         justify-content: center;
+    }
+
+    .footer-bottom {
+        padding-top: var(--spacing-sm);
     }
 
     .social-icon {
