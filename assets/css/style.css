@@ -247,6 +247,12 @@ p {
   font-weight: 400;
   color: var(--text-muted);
 }
+.ck-text-body-primary-color {
+  font-size: clamp(1rem, 0.5vw + 0.8rem, 1.125rem);
+  line-height: 1.75;
+  font-weight: 400;
+  color: var(--primary-color);
+}
 
 .ck-text-body-sm {
   font-size: clamp(0.875rem, 0.5vw + 0.75rem, 1rem);
@@ -261,7 +267,7 @@ p {
 
 .text-icon {
   font-size: clamp(1.25rem, 1.5vw, 1.75rem);
-  line-height: 1;
+  color: var(--primary-color);
 }
 
 .text-team-name {
