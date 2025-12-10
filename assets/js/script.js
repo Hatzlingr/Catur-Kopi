@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // CACHE DOM ELEMENTS FOR PERFORMANCE
   // ==========================================
   const DOM = {
-    navbar: document.querySelector('.navbar'),
     body: document.body,
     darkModeToggle: document.getElementById("darkModeToggle"),
     scrollTopBtn: document.getElementById("scrollToTopBtn"),
@@ -39,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ==========================================
   // OPTIMIZED SCROLL HANDLER (Throttled)
-  // Combines navbar scroll effect and scroll-to-top button
+  // Scroll-to-top button visibility
   // ==========================================
   let scrollTimeout;
   
@@ -48,15 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
     
     scrollTimeout = setTimeout(() => {
       const currentScroll = window.pageYOffset;
-      
-      // Navbar scroll effect
-      if (DOM.navbar) {
-        if (currentScroll > 50) {
-          DOM.navbar.classList.add('scrolled');
-        } else {
-          DOM.navbar.classList.remove('scrolled');
-        }
-      }
       
       // Scroll-to-top button visibility
       if (DOM.scrollTopBtn) {
