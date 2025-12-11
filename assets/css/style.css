@@ -30,6 +30,7 @@
     --surface-strong: rgba(200, 159, 111, 0.12);
     --border-subtle: rgba(0, 0, 0, 0.05);
     --transition-base: 0.3s ease;
+    --cubic-bezier-base: cubic-bezier(0.4, 0, 0.2, 1);
     
     /* PROPERTI CSS KUSTOM #1: FONT-FAMILY */
     --font-heading: 'Inter', sans-serif;
@@ -294,28 +295,8 @@ p {
   margin: 0;
 }
 
-/* Fade-in Animation Classes */
-.fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.slide-up {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.slide-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+/* AOS Animations - handled by AOS library */
+/* Custom animations removed, using AOS built-in effects */
 
 /* --- 4. MODERN COMPONENTS --- */
 
@@ -403,23 +384,10 @@ p {
 
 .hero-section h1 {
   margin-bottom: 1.5rem;
-  animation: fadeInUp 1s ease-out;
 }
 
 .hero-section p {
   margin-bottom: 2rem;
-  animation: fadeInUp 1s ease-out 0.2s backwards;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 /* Modern Buttons */
@@ -435,7 +403,7 @@ p {
     letter-spacing: 0.02em;
     color: var(--text-white);
     /* PROPERTI CSS KUSTOM #2: TRANSITION */
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s var(--cubic-bezier-base);
 }
 
 .btn-coffee::before {
@@ -490,14 +458,9 @@ p {
     padding-right: 1.5rem;
 }
 
-/* About layout (inspired by Ladang Lima Our Company) */
-.about-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: 2rem;
-}
-
+/* Grid handled by Bootstrap row/col */
 .about-media {
+  height: 100%;
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -505,8 +468,9 @@ p {
 }
 
 .about-media-logo {
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 1rem;
 }
 
@@ -525,18 +489,6 @@ p {
   border-radius: var(--radius-md);
   padding: 0;
   box-shadow: none;
-}
-
-.about-badge {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  background: rgba(0, 0, 0, 0.6);
-  color: var(--text-white);
-  padding: 0.4rem 0.9rem;
-  border-radius: 999px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
 }
 
 .about-content {
@@ -562,11 +514,7 @@ p {
   display: inline-block;
 }
 
-.about-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 0.75rem;
-}
+/* Stats handled by Bootstrap row/col */
 
 .stat-item {
   background: var(--card-bg);
@@ -606,12 +554,6 @@ p {
   position: relative;
   z-index: 2;
 }
-
-.about-hero h1,
-.about-hero p {
-  animation: fadeInUp 0.8s ease-out;
-}
-
 
 /* Services Section - Premium Style */
 .services-section, .team-section {
@@ -735,7 +677,7 @@ p {
     box-shadow: var(--shadow-sm);
     
     /* PROPERTI CSS KUSTOM #2: TRANSITION */
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s var(--cubic-bezier-base);
 }
 
 .card:hover {
@@ -749,7 +691,7 @@ p {
 
 .card-img-top {
     /* PROPERTI CSS KUSTOM #2: TRANSITION */
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.6s var(--cubic-bezier-base);
 }
 
 .card:hover .card-img-top {
@@ -767,9 +709,8 @@ p {
 
 /* --- 5. INTERACTIVE ELEMENTS --- */
 
-/* Scroll to Top Button - Modern */
+/* Scroll to Top Button - Modern (CSS-based with opacity) */
 #scrollToTopBtn {
-    display: none;
     position: fixed;
     bottom: 30px;
     right: 30px;
@@ -782,14 +723,17 @@ p {
     height: 56px;
     font-size: 24px;
     cursor: pointer;
-    box-shadow: var(--shadow-lg);
-    
-    /* PROPERTI CSS KUSTOM #2: TRANSITION */
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s var(--cubic-bezier-base);
+}
+
+#scrollToTopBtn.visible {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 #scrollToTopBtn:hover {
-    /* PROPERTI CSS KUSTOM #5: TRANSFORM */
     transform: scale(1.1) translateY(-3px);
     box-shadow: 0 12px 40px rgba(93, 78, 55, 0.4);
 }
@@ -1022,7 +966,4 @@ p {
       padding: 2rem 0 0 0;
     }
 
-      .about-grid {
-    grid-template-columns: 1fr;
-  }
 }

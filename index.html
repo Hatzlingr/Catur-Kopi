@@ -20,6 +20,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
@@ -81,7 +83,7 @@
     <main>
       <!-- Hero Section -->
       <header class="hero-section">
-        <div class="container text-center">
+        <div class="container text-center" data-aos="fade-up">
           <h1 class="text-hero">Empat Rasa, Satu Jiwa Nusantara</h1>
           <p class="ck-text-header">
             Empat varietas unggulan, satu komitmen kualitas.
@@ -98,7 +100,7 @@
       <!-- Menggunakan container, row, col untuk layout responsif -->
       <!-- ============================================ -->
       <section class="intro-section">
-        <div class="container fade-in">
+        <div class="container" data-aos="fade-up" data-aos-duration="800">
           <h2 class="text-section mb-4">Tentang Catur Kopi</h2>
           <p class="ck-text-lead">
             Catur Kopi adalah perusahaan kopi hulu-hilir yang mengelola empat
@@ -115,7 +117,11 @@
       <section class="gallery-section">
         <div class="container">
           <!-- Section Header -->
-          <div class="text-center mb-5 fade-in">
+          <div
+            class="text-center mb-5"
+            data-aos="fade-up"
+            data-aos-duration="800"
+          >
             <h2 class="text-section">Galeri Kebun Kami</h2>
             <p class="ck-text-body-sm">
               Jejak visual dari kebun, proses sangrai, hingga kopi siap
@@ -128,7 +134,12 @@
           <!-- KOMPONEN BOOTSTRAP #2: CAROUSEL -->
           <!-- Slider gambar otomatis dengan kontrol navigasi -->
           <!-- ============================================ -->
-          <div class="row justify-content-center fade-in">
+          <div
+            class="row justify-content-center"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="200"
+          >
             <div class="col-lg-10">
               <div
                 id="coffeeCarousel"
@@ -417,6 +428,8 @@
     <button id="scrollToTopBtn" title="Go to top">↑</button>
 
     <script src="./vendor/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>

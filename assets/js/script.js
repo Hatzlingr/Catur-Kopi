@@ -1,29 +1,9 @@
-/* ============================================ */
-/* JAVASCRIPT INTERAKTIF (DOM Manipulation) */
-/* Memenuhi persyaratan: Minimal 1 fitur interaktif */
-/* ============================================ */
-
 document.addEventListener("DOMContentLoaded", function () {
-  // ==========================================
-  // SCROLL ANIMATIONS - Intersection Observer
-  // Menambahkan animasi smooth saat scroll
-  // ==========================================
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, observerOptions);
-
-  // Observe all elements with fade-in or slide-up classes
-  document.querySelectorAll('.fade-in, .slide-up').forEach((element) => {
-    observer.observe(element);
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true,
+    offset: 100
   });
 
   // ==========================================
@@ -37,29 +17,16 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   // ==========================================
-  // OPTIMIZED SCROLL HANDLER (Throttled)
-  // Scroll-to-top button visibility
+  // OPTIMIZED SCROLL HANDLER (CSS-based)
+  // Scroll-to-top button visibility with class toggle
   // ==========================================
-  let scrollTimeout;
+  if (DOM.scrollTopBtn) {
+    window.addEventListener('scroll', () => {
+      DOM.scrollTopBtn.classList.toggle('visible', window.scrollY > 100);
+    }, { passive: true });
+  }
+
   
-  const handleScroll = () => {
-    if (scrollTimeout) return;
-    
-    scrollTimeout = setTimeout(() => {
-      const currentScroll = window.pageYOffset;
-      
-      // Scroll-to-top button visibility
-      if (DOM.scrollTopBtn) {
-        DOM.scrollTopBtn.style.display = currentScroll > 100 ? "block" : "none";
-      }
-      
-      scrollTimeout = null;
-    }, 100); // Throttle to every 100ms
-  };
-
-  window.addEventListener('scroll', handleScroll, { passive: true });
-
-  // ==========================================
   // FITUR INTERAKTIF #1: Dark / Light Mode Toggle
   // Memanfaatkan DOM untuk toggle class dan localStorage
   // ==========================================
