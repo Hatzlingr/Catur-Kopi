@@ -6,9 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
     offset: 100
   });
 
-  // ==========================================
-  // CACHE DOM ELEMENTS FOR PERFORMANCE
-  // ==========================================
   const DOM = {
     body: document.body,
     darkModeToggle: document.getElementById("darkModeToggle"),
@@ -16,20 +13,15 @@ document.addEventListener("DOMContentLoaded", function () {
     contactForm: document.getElementById("contactForm")
   };
 
-  // ==========================================
-  // OPTIMIZED SCROLL HANDLER (CSS-based)
   // Scroll-to-top button visibility with class toggle
-  // ==========================================
   if (DOM.scrollTopBtn) {
     window.addEventListener('scroll', () => {
       DOM.scrollTopBtn.classList.toggle('visible', window.scrollY > 100);
     }, { passive: true });
   }
 
-  
+
   // FITUR INTERAKTIF #1: Dark / Light Mode Toggle
-  // Memanfaatkan DOM untuk toggle class dan localStorage
-  // ==========================================
   if (DOM.darkModeToggle) {
     const icon = DOM.darkModeToggle.querySelector('i');
     
@@ -52,10 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ==========================================
   // FITUR INTERAKTIF #2: Scroll-to-Top Button
-  // DOM Manipulation: Smooth scroll to top
-  // ==========================================
   if (DOM.scrollTopBtn) {
     DOM.scrollTopBtn.addEventListener("click", () => {
       window.scrollTo({
@@ -65,10 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ==========================================
   // FITUR INTERAKTIF #3: Form Validation
-  // DOM Manipulation: Form validation dengan classList
-  // ==========================================
   if (DOM.contactForm) {
     const validators = {
       name: val => val.trim().length > 0,
@@ -80,7 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
       event.preventDefault();
       let isValid = true;
 
-      // Validate all inputs
       Object.entries(validators).forEach(([id, validator]) => {
         const element = document.getElementById(id);
         if (!element) return;
@@ -92,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       if (isValid) {
-        alert("Terima kasih! Pesan Anda telah kami terima.");
+        alert("Terima kasih! Pesan Anda telah kami makan.");
         DOM.contactForm.reset();
       }
     });

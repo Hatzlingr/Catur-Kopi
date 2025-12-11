@@ -1,19 +1,15 @@
-/* ============================================ */
-/* MODERN DESIGN SYSTEM - Inspired by Ladang Lima */
-/* CUSTOM CSS PROPERTIES (Persyaratan: Minimal 5) */
-/* ============================================ */
+/* CUSTOM CSS PROPERTIES */
 
 /* --- 1. SETUP VARIABEL WARNA & FONT --- */
 :root {
-    /* Modern Natural Color Palette */
-    --primary-color: #5d4e37;       /* Warm Brown */
-    --secondary-color: #8b7355;     /* Light Coffee */
-    --accent-color: #c89f6f;        /* Golden Sand */
+    --primary-color: #5d4e37;      
+    --secondary-color: #8b7355;     
+    --accent-color: #c89f6f;       
     --intro-bg: linear-gradient(135deg, rgba(200, 159, 111, 0.14) 0%, rgba(93, 78, 55, 0.12) 100%);
-    --bg-color: #fafaf8;            /* Cream White */
-    --text-color: #2d2d2d;          /* Charcoal */
+    --bg-color: #fafaf8; 
+    --text-color: #2d2d2d;     
     --text-hero: #ebdfd8;
-    --text-muted: #6b6b6b;          /* Gray */
+    --text-muted: #6b6b6b;        
     --text-white: #ffffff;
     --text-white-90: rgba(255, 255, 255, 0.9);
     --text-white-80: rgba(255, 255, 255, 0.8);
@@ -32,18 +28,15 @@
     --transition-base: 0.3s ease;
     --cubic-bezier-base: cubic-bezier(0.4, 0, 0.2, 1);
     
-    /* PROPERTI CSS KUSTOM #1: FONT-FAMILY */
     --font-heading: 'Inter', sans-serif;
     --font-body: 'Inter', sans-serif;
-    
-    /* Spacing System */
+
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
     --spacing-lg: 4rem;
     --spacing-xl: 6rem;
-    
-    /* Border Radius */
+
     --radius-sm: 8px;
     --radius-md: 16px;
     --radius-lg: 24px;
@@ -203,11 +196,11 @@ p {
   line-height: 1.75;
 }
 
-/* Typography Scale - Ladang Lima inspired */
+/* Typography Scale */
 .text-hero {
   font-size: clamp(2rem, 4vw + 1rem, 3.5rem);  /* 36px → 56px */
   line-height: 1.1;
-  font-weight: 700;  /* Lebih bold untuk impact */
+  font-weight: 700; 
   letter-spacing: -0.02em;
   color: var(--text-hero);
 }
@@ -295,19 +288,12 @@ p {
   margin: 0;
 }
 
-/* AOS Animations - handled by AOS library */
-/* Custom animations removed, using AOS built-in effects */
-
-/* --- 4. MODERN COMPONENTS --- */
-
 /* Navbar with Glassmorphism */
 .navbar {
     background-color: var(--navbar-bg) !important;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    /* PROPERTI CSS KUSTOM #3: BOX-SHADOW */
     box-shadow: var(--shadow-sm);
-    /* PROPERTI CSS KUSTOM #2: TRANSITION */
     transition: all var(--transition-base);
     padding: var(--spacing-sm) 0;
 }
@@ -323,7 +309,6 @@ p {
     position: relative;
     justify-content: center;
     padding: var(--spacing-sm) var(--spacing-sm) !important;
-    /* PROPERTI CSS KUSTOM #2: TRANSITION */
     transition: color var(--transition-base);
 }
 
@@ -335,21 +320,15 @@ p {
     color: var(--accent-color) !important;
 }
 
-/* Navbar Toggler - Dark Mode Support */
 .navbar-toggler {
     border-color: var(--border-subtle);
     transition: border-color var(--transition-base), filter var(--transition-base);
 }
 
-
-
-/* Hero Section - Modern & Parallax */
 .hero-section {
-    /* PROPERTI CSS KUSTOM #4: FLEXBOX */
     display: flex;
     align-items: center;
     justify-content: center;
-    
     background: linear-gradient(135deg, rgba(93, 78, 55, 0.85) 0%, rgba(45, 45, 45, 0.75) 100%), 
                 url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
     background-size: cover;
@@ -382,15 +361,6 @@ p {
   background: var(--intro-bg);
 }
 
-.hero-section h1 {
-  margin-bottom: 1.5rem;
-}
-
-.hero-section p {
-  margin-bottom: 2rem;
-}
-
-/* Modern Buttons */
 .btn-coffee {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     border-radius: 50px;
@@ -402,7 +372,6 @@ p {
     font-size: 1.2rem;
     letter-spacing: 0.02em;
     color: var(--text-white);
-    /* PROPERTI CSS KUSTOM #2: TRANSITION */
     transition: all 0.4s var(--cubic-bezier-base);
 }
 
@@ -424,11 +393,7 @@ p {
 .btn-coffee:hover {
     background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
     color: var(--text-white);
-    
-    /* PROPERTI CSS KUSTOM #5: TRANSFORM */
     transform: translateY(-3px) scale(1.02);
-    
-    /* PROPERTI CSS KUSTOM #3: BOX-SHADOW */
     box-shadow: 0 10px 25px rgba(93, 78, 55, 0.3);
 }
 
@@ -436,11 +401,8 @@ p {
     transform: translateY(-1px) scale(0.98);
 }
 
-
-
-/* About Hero - Modern Overlay */
+/* About */
 .about-hero {
-  /* PROPERTI CSS KUSTOM #4: FLEXBOX */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -458,7 +420,6 @@ p {
     padding-right: 1.5rem;
 }
 
-/* Grid handled by Bootstrap row/col */
 .about-media {
   height: 100%;
   position: relative;
@@ -514,8 +475,6 @@ p {
   display: inline-block;
 }
 
-/* Stats handled by Bootstrap row/col */
-
 .stat-item {
   background: var(--card-bg);
   border-radius: var(--radius-md);
@@ -555,13 +514,13 @@ p {
   z-index: 2;
 }
 
-/* Services Section - Premium Style */
+/* Services Section */
 .services-section, .team-section {
   background: var(--intro-bg);
   padding: var(--spacing-lg) 1.5rem;
 }
 
-/* Product Showcase - Ladang Lima Style */
+/* Product Showcase */
 .product-showcase {
   padding: var(--spacing-md) 0;
   border-bottom: 1px solid var(--border-subtle);
@@ -664,38 +623,26 @@ p {
   color: var(--text-muted);
 }
 
-
-
-/* Modern Cards */
 .card {
     background-color: var(--card-bg);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-md);
     overflow: hidden;
-    
-    /* PROPERTI CSS KUSTOM #3: BOX-SHADOW */
     box-shadow: var(--shadow-sm);
-    
-    /* PROPERTI CSS KUSTOM #2: TRANSITION */
     transition: all 0.4s var(--cubic-bezier-base);
 }
 
 .card:hover {
-    /* PROPERTI CSS KUSTOM #5: TRANSFORM */
     transform: translateY(-8px) scale(1.02);
-    
-    /* PROPERTI CSS KUSTOM #3: BOX-SHADOW (hover) */
     box-shadow: var(--shadow-lg);
     border-color: var(--accent-color);
 }
 
 .card-img-top {
-    /* PROPERTI CSS KUSTOM #2: TRANSITION */
     transition: transform 0.6s var(--cubic-bezier-base);
 }
 
 .card:hover .card-img-top {
-    /* PROPERTI CSS KUSTOM #5: TRANSFORM */
     transform: scale(1.1);
 }
 
@@ -707,9 +654,7 @@ p {
     color: var(--text-muted);
 }
 
-/* --- 5. INTERACTIVE ELEMENTS --- */
-
-/* Scroll to Top Button - Modern (CSS-based with opacity) */
+/* --- Scroll Top --- */
 #scrollToTopBtn {
     position: fixed;
     bottom: 30px;
@@ -742,7 +687,6 @@ p {
     transform: scale(0.95);
 }
 
-/* Dark Mode Toggle - Sleek Design */
 #darkModeToggle {
   background: transparent;
   border: 2px solid var(--text-color);
@@ -756,8 +700,6 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  /* PROPERTI CSS KUSTOM #2: TRANSITION */
   transition: all var(--transition-base);
 }
 
@@ -769,7 +711,6 @@ p {
 #darkModeToggle:hover {
   background-color: var(--text-color);
   color: var(--bg-color);
-  /* PROPERTI CSS KUSTOM #5: TRANSFORM */
   transform: scale(1.05);
 }
 
@@ -777,10 +718,7 @@ p {
   transform: rotate(15deg) scale(1.1);
 }
 
-
-/* --- 7. FOOTER & SECTIONS --- */
-
-/* Modern Footer - Simpel & Bersih */
+/* --- FOOTER --- */
 .modern-footer {
     background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
     padding: var(--spacing-md) 0 var(--spacing-md);
@@ -867,7 +805,6 @@ p {
     margin: 0;
 }
 
-/* Section Spacing */
 .intro-section,
 .gallery-section,
 .products-section,
@@ -896,7 +833,7 @@ p {
   .product-carousel .carousel-caption h5 {
     margin-bottom: 0.25rem;
   }
-  /* Carousel indicators - lebih kecil di mobile dan di bawah teks */
+
   .product-carousel .carousel-indicators {
     bottom: 0;
     margin-bottom: 0;
@@ -908,7 +845,6 @@ p {
     margin: 0 3px;
   }
 
-    /* Footer - Text lebih kecil di mobile */
     .footer-content {
         flex-direction: column;
         text-align: center;
@@ -939,9 +875,7 @@ p {
     }
 }
 
-/* Responsive Design - Consolidated Media Queries */
 @media (max-width: 991px) {
-    /* Mobile Navbar Alignment */
     .navbar-nav {
       align-items: flex-end !important;
       text-align: right;
@@ -956,8 +890,6 @@ p {
       background-attachment: scroll;
     }
 
-   
-  /* Responsive Product Showcase */
     .product-showcase .flex-lg-row-reverse {
       flex-direction: column !important;
     }
