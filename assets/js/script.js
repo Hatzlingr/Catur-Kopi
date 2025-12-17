@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       if (isValid) {
-        alert("Terima kasih! Pesan Anda telah kami makan.");
+        alert("Terima kasih! Pesan Anda telah kami terima.");
         DOM.contactForm.reset();
       }
     });
